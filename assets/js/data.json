@@ -80,6 +80,13 @@
     "sound": "Skip_The_Use-Nameless_World.mp3",
     "title": "Skip The Use - Nameless World",
     "category": "Rock"
+  },
+  {
+  "id": 12,
+  "cover": "kyrieirving.jpg",
+  "sound": "osirus_jack_kyrie_irving.mp3",
+  "title": "Osirus Jack Kyrie irving",
+  "category": "rap français"
   }
 
 ]

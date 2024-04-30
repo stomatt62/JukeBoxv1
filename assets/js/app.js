@@ -3,6 +3,7 @@ const lecteur = document.querySelector(".lecteur");
 const cover = document.getElementById("cover");
 const disque = document.getElementById("disque");
 const category = document.getElementById("category");
+const gif = document.getElementById("gif");
 
 const config = {
   urlCover: "uploads/covers/",
@@ -53,6 +54,19 @@ const getData = async () => {
     // Retirer la classe "pause" pour lancer l'animation du disque
     disque.classList.remove("pause");
   });
+  gif.style.display = "none";
+
+  // Ajoutez le code suivant pour afficher le GIF animé lorsque l'utilisateur appuie sur "Play"
+  lecteur.addEventListener("play", function () {
+    // Afficher le GIF animé
+    gif.style.display = "block";
+  });
+
+  // Ajoutez le code suivant pour cacher le GIF animé lorsque la lecture est mise en pause
+  lecteur.addEventListener("pause", function () {
+    // Cacher le GIF animé
+    gif.style.display = "none";
+  });
 };
 
 getData();
@@ -74,8 +88,7 @@ sortSelect.addEventListener("change", function () {
   sortPlaylist(sortBy);
 });
 
-/*
-// Fonction pour trier la liste de lecture en fonction de la méthode de tri sélectionnée
+/* Fonction pour trier la liste de lecture en fonction de la méthode de tri sélectionnée
 function sortPlaylist(sortBy) {
   const playlistItems = Array.from(document.querySelectorAll("#playlist li"));
   const sortedItems = playlistItems.sort((a, b) => {
@@ -86,6 +99,4 @@ function sortPlaylist(sortBy) {
   // Effacez la liste de lecture actuelle
   playlist.innerHTML = "";
   // Ajoutez les éléments triés à la liste de lecture
-  sortedItems.forEach(item => playlist.appendChild(item));
-}
-*/
+  sortedItems.forEach((item) => playlist.appendChild(item));}*/
