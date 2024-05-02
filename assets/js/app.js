@@ -11,13 +11,13 @@ const config = {
 };
 
 const getData = async () => {
-  const req = await fetch("http://localhost:3000/api/v1/music");
+  const req = await fetch("https://api-195d.onrender.com/api/v1/music");
   console.log(req);
   const dbMusic = await req.json();
   data = dbMusic.result;
-  console.log("result", dbMusic);
+  console.log("result", data);
 
-  dbMusic.forEach((music) => {
+  data.forEach((music) => {
     playlist.innerHTML += `<li id="${music.id}"><h2>${music.title}</h2><div><small>${music.category}</small></div></li>`;
   });
 
@@ -26,7 +26,7 @@ const getData = async () => {
   allLi.forEach((li) => {
     li.addEventListener("click", function (elem) {
       const id = parseInt(li.id);
-      const searchById = dbMusic.find((element) => element.id === id);
+      const searchById = data.find((element) => element.id === id);
       lecteur.src = `${config.urlSound}${searchById.sound}`;
       lecteur.play();
       cover.src = `${config.urlCover}${searchById.cover}`;
@@ -40,10 +40,10 @@ const getData = async () => {
 
   aleatoireBtn.addEventListener("click", function () {
     // Générer un index aléatoire dans la plage des indices du tableau dbMusic
-    const randomIndex = Math.floor(Math.random() * dbMusic.length);
+    const randomIndex = Math.floor(Math.random() * data.length);
 
     // Sélectionner une musique aléatoire à partir de dbMusic
-    const randomMusic = dbMusic[randomIndex];
+    const randomMusic = data[randomIndex];
 
     // Mettre à jour le lecteur audio avec la musique aléatoire
     lecteur.src = `${config.urlSound}${randomMusic.sound}`;
