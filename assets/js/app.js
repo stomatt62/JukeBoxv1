@@ -11,9 +11,10 @@ const config = {
 };
 
 const getData = async () => {
-  const req = await fetch("./assets/js/data.json");
+  const req = await fetch("http://localhost:3000/api/v1/music");
   console.log(req);
   const dbMusic = await req.json();
+  data = dbMusic.result;
   console.log("result", dbMusic);
 
   dbMusic.forEach((music) => {
@@ -80,13 +81,13 @@ lecteur.addEventListener("play", function () {
 });
 
 // Récupérez l'élément de sélection et écoutez les événements de changement
-const sortSelect = document.getElementById("sort-select");
-sortSelect.addEventListener("change", function () {
-  // Obtenez la valeur sélectionnée pour déterminer comment trier
-  const sortBy = sortSelect.value;
-  // Appelez la fonction de tri avec la méthode de tri sélectionnée
-  sortPlaylist(sortBy);
-});
+//const sortSelect = document.getElementById("sort-select");
+//sortSelect.addEventListener("change", function () {
+// Obtenez la valeur sélectionnée pour déterminer comment trier
+// const sortBy = sortSelect.value;
+// Appelez la fonction de tri avec la méthode de tri sélectionnée
+// sortPlaylist(sortBy);
+//});
 
 /* Fonction pour trier la liste de lecture en fonction de la méthode de tri sélectionnée
 function sortPlaylist(sortBy) {
