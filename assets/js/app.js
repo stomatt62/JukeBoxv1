@@ -11,7 +11,7 @@ const config = {
 };
 
 const getData = async () => {
-  const req = await fetch("https://api-195d.onrender.com/api/v1/music");
+  const req = await fetch("https://api-195d.onrender.com/api/v1/musics");
   console.log(req);
   const dbMusic = await req.json();
   data = dbMusic.result;
